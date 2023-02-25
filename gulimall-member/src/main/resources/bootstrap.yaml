@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: gulimall-member
+  profiles:
+    active: release
+  cloud:
+    nacos:
+      config:
+        ext-config:
+          - data-id: gulimall-member-release.yaml
+            file-extension: yaml
+            refresh: true
+        server-addr: 192.168.15.128:8848
+      discovery:
+        server-addr: 192.168.15.128:8848
+
+
+# xml 文件位置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto  #主键自增

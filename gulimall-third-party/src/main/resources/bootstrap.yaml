@@ -1,0 +1,22 @@
+server:
+  port: 30001
+
+spring:
+  application:
+    name: gulimall-third-party
+  profiles:
+    active: release
+  cloud:
+    nacos:
+      config:
+        ext-config:
+          - data-id: ${spring.application.name}-${spring.profiles.active}.yaml
+            file-extension: yaml
+            refresh: true
+          - data-id: oss.yaml
+            file-extension: yaml
+            refresh: true
+        server-addr: 192.168.15.128:8848
+      discovery:
+        server-addr: 192.168.15.128:8848
+
