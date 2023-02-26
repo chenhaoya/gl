@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: gulimall-coupon
+  profiles:
+    active: release
+  cloud:
+    nacos:
+      config:
+        ext-config:
+          - data-id: ${spring.application.name}-${spring.profiles.active}.yaml
+            file-extension: yaml
+            refresh: true
+        server-addr: 192.168.15.128:8848
+      discovery:
+        server-addr: 192.168.15.128:8848
+

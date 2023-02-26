@@ -25,6 +25,7 @@ import com.atguigu.common.utils.Query;
 
 import com.atguigu.gulimall.product.dao.SpuInfoDao;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 
@@ -68,6 +69,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
      * //TODO 高级部分完善
      * @param vo
      */
+    @SuppressWarnings(value = "all")
     @Transactional
     @Override
     public void saveSpuInfo(SpuSaveVo vo) {
@@ -86,12 +88,9 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         descEntity.setDecript(String.join(",",decript));
         spuInfoDescService.saveSpuInfoDesc(descEntity);
 
-
-
         //3、保存spu的图片集 pms_spu_images
         List<String> images = vo.getImages();
         imagesService.saveImages(infoEntity.getId(),images);
-
 
         //4、保存spu的规格参数;pms_product_attr_value
         List<BaseAttrs> baseAttrs = vo.getBaseAttrs();
@@ -108,7 +107,6 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         }).collect(Collectors.toList());
         attrValueService.saveProductAttr(collect);
 
-
         //5、保存spu的积分信息；gulimall_sms->sms_spu_bounds
         Bounds bounds = vo.getBounds();
         SpuBoundTo spuBoundTo = new SpuBoundTo();
@@ -118,7 +116,6 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         if(r.getCode() != 0){
             log.error("远程保存spu积分信息失败");
         }
-
 
         //5、保存当前spu对应的所有sku信息；
 
@@ -158,8 +155,11 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                     return !StringUtils.isEmpty(entity.getImgUrl());
                 }).collect(Collectors.toList());
                 //5.2）、sku的图片信息；pms_sku_image
-                skuImagesService.saveBatch(imagesEntities);
-                //TODO 没有图片路径的无需保存
+                //TODO 没有图片路径的无需保存 [以过滤】
+                List<SkuImagesEntity> collect1 = imagesEntities.stream().filter(e -> {
+                    return !StringUtils.isEmpty(e.getImgUrl());
+                }).collect(Collectors.toList());
+                skuImagesService.saveBatch(collect1);
 
                 List<Attr> attr = item.getAttr();
                 List<SkuSaleAttrValueEntity> skuSaleAttrValueEntities = attr.stream().map(a -> {
@@ -182,17 +182,8 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                         log.error("远程保存sku优惠信息失败");
                     }
                 }
-
-
-
             });
         }
-
-
-
-
-
-
     }
 
     @Override
