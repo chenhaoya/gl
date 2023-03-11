@@ -59,6 +59,7 @@ public class PurchaseServiceImpl extends ServiceImpl<PurchaseDao, PurchaseEntity
         return new PageUtils(page);
     }
 
+    @SuppressWarnings(value = "all")
     @Transactional
     @Override
     public void mergePurchase(MergeVo mergeVo) {
@@ -136,12 +137,12 @@ public class PurchaseServiceImpl extends ServiceImpl<PurchaseDao, PurchaseEntity
         });
     }
 
+    @SuppressWarnings(value = "all")
     @Transactional
     @Override
     public void done(PurchaseDoneVo doneVo) {
 
         Long id = doneVo.getId();
-
 
         //2、改变采购项的状态
         Boolean flag = true;
@@ -172,10 +173,5 @@ public class PurchaseServiceImpl extends ServiceImpl<PurchaseDao, PurchaseEntity
         purchaseEntity.setStatus(flag?WareConstant.PurchaseStatusEnum.FINISH.getCode():WareConstant.PurchaseStatusEnum.HASERROR.getCode());
         purchaseEntity.setUpdateTime(new Date());
         this.updateById(purchaseEntity);
-
-
-
-
     }
-
 }
