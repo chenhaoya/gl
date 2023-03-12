@@ -32,6 +32,17 @@ public class SpuInfoController {
     private SpuInfoService spuInfoService;
 
     /**
+     * 商品上架
+     * @param spuId
+     * @return
+     */
+    @RequestMapping("/{spuId}/up")
+    public R list(@PathVariable("spuId") Long spuId){
+        spuInfoService.up(spuId);
+        return R.ok();
+    }
+
+    /**
      * 列表
      */
     @RequestMapping("/list")
