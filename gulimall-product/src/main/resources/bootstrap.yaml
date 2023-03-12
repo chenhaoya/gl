@@ -14,3 +14,7 @@ spring:
       discovery:
         server-addr: 192.168.15.128:8848
 
+  thymeleaf:
+    cache: false
+  resources:
+    static-locations: classpath:templates/,classpath:static/
