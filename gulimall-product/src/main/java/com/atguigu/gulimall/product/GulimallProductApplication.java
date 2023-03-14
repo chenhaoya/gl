@@ -3,6 +3,7 @@ package com.atguigu.gulimall.product;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
@@ -42,21 +43,42 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  *      1）、编写一个自定义的校验注解
  *      2）、编写一个自定义的校验器 ConstraintValidator
  *      3）、关联自定义的校验器和自定义的校验注解
-         *      @Documented
-         * @Constraint(validatedBy = { ListValueConstraintValidator.class【可以指定多个不同的校验器，适配不同类型的校验】 })
-         * @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE })
-         * @Retention(RUNTIME)
-         * public @interface ListValue {
+ *      @Documented
+ * @Constraint(validatedBy = { ListValueConstraintValidator.class【可以指定多个不同的校验器，适配不同类型的校验】 })
+ * @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE })
+ * @Retention(RUNTIME)
+ * public @interface ListValue {
  *
  * 4、统一的异常处理
  * @ControllerAdvice
  *  1）、编写异常处理类，使用@ControllerAdvice。
  *  2）、使用@ExceptionHandler标注方法可以处理的异常。
  */
+/**
+ *  8、整合SpringCache简化缓存开发
+ *      1、引入依赖
+ *          spring-boot-starter-cache
+ *      2、写配置
+ *          1、自动配置了那些
+ *              CacheAutoConfiguration会导入 RedisCacheConfiguration
+ *              自动配置好了缓存管理器，RedisCacheManager
+ *          2、配置使用redis作为缓存
+ *          Spring.cache.type=redis
+ *
+ *       4、原理
+ *       CacheAutoConfiguration ->RedisCacheConfiguration ->
+ *       自动配置了 RedisCacheManager ->初始化所有的缓存 -> 每个缓存决定使用什么配置
+ *       ->如果redisCacheConfiguration有就用已有的，没有就用默认的
+ *       ->想改缓存的配置，只需要把容器中放一个 RedisCacheConfiguration 即可
+ *       ->就会应用到当前 RedisCacheManager管理所有缓存分区中
+ */
+
+//@EnableRedisHttpSession     //开启springsession
+//@EnableCaching      //开启缓存功能
 @EnableFeignClients(basePackages = "com.atguigu.gulimall.product.feign")
 @EnableDiscoveryClient
 @MapperScan("com.atguigu.gulimall.product.dao")
-@SpringBootApplication
+@SpringBootApplication //(exclude = GlobalTransactionAutoConfiguration.class)
 public class GulimallProductApplication {
 
     public static void main(String[] args) {

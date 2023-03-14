@@ -46,8 +46,41 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
 <!--            <version>2.3.12.RELEASE</version>-->
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.lettuce</groupId>
+                    <artifactId>lettuce-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+<!--        lettuce 换成 jedis 解决 堆外内存溢出OutOfDirectMemoryError-->
+<!--        或者升级版本-->
 <!--        <dependency>-->
+<!--            <groupId>io.lettuce</groupId>-->
+<!--            <artifactId>lettuce-core</artifactId>-->
+<!--            <version>5.3.6.RELEASE</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+
+        <!-- 以后使用Redisson作为所有分布式锁 -->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+
+        <!--        <dependency>-->
 <!--            <groupId>com.aliyun.oss</groupId>-->
 <!--            <artifactId>aliyun-sdk-oss</artifactId>-->
 <!--            <version>3.5.0</version>-->
