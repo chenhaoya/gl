@@ -229,7 +229,7 @@ public class MallSearchServiceImpl implements MallSearchService {
                     e.printStackTrace();
                 }
                 String replace = param.get_queryString().replace("&attrs=" + attr, "");
-                navVo.setLink("http://search.gulimall.com/list.html?" + replace);
+                navVo.setLink("http://127.0.0.1:12000/list.html?" + replace);
 
                 return navVo;
             }).collect(Collectors.toList());
