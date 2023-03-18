@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface ProductFeignService {
 
     @GetMapping("/product/attr/info/{attrId}")
-    public R attrInfo(@PathVariable("attrId") Long attrId);
+    R attrInfo(@PathVariable("attrId") Long attrId);
 
 }

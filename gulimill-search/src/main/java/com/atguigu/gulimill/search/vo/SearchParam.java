@@ -10,6 +10,7 @@ public class SearchParam {
 
     /**
      * 页面传递过来的全文匹配关键字
+     * skuTitle
      */
     private String keyword;
 

@@ -117,8 +117,6 @@ public class MallSearchServiceImpl implements MallSearchService {
         //获取属性信息的聚合
         ParsedNested attrsAgg = response.getAggregations().get("attr_agg");
 
-        Aggregation attr_id_agg = attrsAgg.getAggregations().get("attr_id_agg");
-
         ParsedLongTerms attrIdAgg = attrsAgg.getAggregations().get("attr_id_agg");
         for (Terms.Bucket bucket : attrIdAgg.getBuckets()) {
             SearchResult.AttrVo attrVo = new SearchResult.AttrVo();
