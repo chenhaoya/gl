@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: gulimall-search
+  profiles:
+    active: release
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.15.128:8848
+      config:
+        server-addr: 192.168.15.128:8848
+        ext-config:
+          - data-id: ${spring.application.name}-${spring.profiles.active}.yaml
+            refresh: true
+            group: DEFAULT_GROUP
+
+#  resources:
+#    static-locations: classpath:templates/,classpath:static/,classpath:static/search/**
+
