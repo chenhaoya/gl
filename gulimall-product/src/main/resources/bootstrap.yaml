@@ -18,3 +18,9 @@ spring:
     cache: false
   resources:
     static-locations: classpath:templates/,classpath:static/
+
+gulimill:
+  thread:
+    core-size: 5
+    max-size: 20
+    keep-alive-time: 10
