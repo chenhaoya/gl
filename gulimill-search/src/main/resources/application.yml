@@ -32,7 +32,7 @@ feign:
 
 logging:
   level:
-    com.xunqi.gulimall.search: debug
+    com.atguigu.gulimall.search: debug
     root: warn
   pattern:
     console: "%d{yyyy-MM-dd} [%thread] - %msg%n"
