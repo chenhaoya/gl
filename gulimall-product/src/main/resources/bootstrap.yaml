@@ -19,8 +19,8 @@ spring:
   resources:
     static-locations: classpath:templates/,classpath:static/
 
-gulimill:
+gulimall:
   thread:
-    core-size: 5
-    max-size: 20
-    keep-alive-time: 10
+    coreSize: 5
+    maxSize: 20
+    keepAliveTime: 10

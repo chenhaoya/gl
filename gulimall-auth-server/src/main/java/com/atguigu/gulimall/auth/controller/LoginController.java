@@ -55,7 +55,7 @@ public class LoginController {
             long currentTime = Long.parseLong(redisCode.split("_")[1]);
             if (System.currentTimeMillis() - currentTime < 60000) {
                 //60s内不能再发
-                return R.error(BizCodeEnum.SMS_CODE_EXCEPTION.getCode(),BizCodeEnum.SMS_CODE_EXCEPTION.getMessage());
+                return R.error(BizCodeEnume.SMS_CODE_EXCEPTION.getCode(),BizCodeEnume.SMS_CODE_EXCEPTION.getMsg());
             }
         }
 
@@ -146,7 +146,7 @@ public class LoginController {
         if (attribute == null) {
             return "login";
         } else {
-            return "redirect:http://gulimall.com";
+            return "redirect:http://127.0.0.1:12000";
         }
 
     }
