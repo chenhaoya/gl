@@ -20,3 +20,10 @@ spring:
       discovery:
         server-addr: 192.168.15.128:8848
 
+    alicloud:
+      sms:
+        host: http://smsyun.market.alicloudapi.com
+        path: /sms/sms01
+        skin: 1
+        sign: 175622
+        appcode: a2d24ea4a29e42a8bd23e185cfece96f

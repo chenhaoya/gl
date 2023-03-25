@@ -64,6 +64,10 @@ public class LoginController {
         String codeNum = String.valueOf(code);
         String redisStorage = codeNum + "_" + System.currentTimeMillis();
 
+        // todo 验证码模板 147258
+        redisStorage = "147258"+ "_" + System.currentTimeMillis();
+        codeNum = "147258";
+
         //存入redis，防止同一个手机号在60秒内再次发送验证码
         stringRedisTemplate.opsForValue().set(AuthServerConstant.SMS_CODE_CACHE_PREFIX+phone,
                 redisStorage,10, TimeUnit.MINUTES);
@@ -93,7 +97,7 @@ public class LoginController {
             attributes.addFlashAttribute("errors",errors);
 
             //效验出错回到注册页面
-            return "redirect:http://auth.gulimall.com/reg.html";
+            return "redirect:http://127.0.0.1:20000/reg.html";
         }
 
         //1、效验验证码
@@ -110,13 +114,13 @@ public class LoginController {
                 R register = memberFeignService.register(vos);
                 if (register.getCode() == 0) {
                     //成功
-                    return "redirect:http://auth.gulimall.com/login.html";
+                    return "redirect:http://127.0.0.1:20000/login.html";
                 } else {
                     //失败
                     Map<String, String> errors = new HashMap<>();
                     errors.put("msg", register.getData("msg",new TypeReference<String>(){}));
                     attributes.addFlashAttribute("errors",errors);
-                    return "redirect:http://auth.gulimall.com/reg.html";
+                    return "redirect:http://127.0.0.1:20000/reg.html";
                 }
 
 
@@ -125,14 +129,14 @@ public class LoginController {
                 Map<String, String> errors = new HashMap<>();
                 errors.put("code","验证码错误");
                 attributes.addFlashAttribute("errors",errors);
-                return "redirect:http://auth.gulimall.com/reg.html";
+                return "redirect:http://127.0.0.1:20000/reg.html";
             }
         } else {
             //效验出错回到注册页面
             Map<String, String> errors = new HashMap<>();
             errors.put("code","验证码错误");
             attributes.addFlashAttribute("errors",errors);
-            return "redirect:http://auth.gulimall.com/reg.html";
+            return "redirect:http://127.0.0.1:20000/reg.html";
         }
     }
 
