@@ -165,12 +165,12 @@ public class LoginController {
         if (login.getCode() == 0) {
             MemberResponseVo data = login.getData("data", new TypeReference<MemberResponseVo>() {});
             session.setAttribute(LOGIN_USER,data);
-            return "redirect:http://gulimall.com";
+            return "redirect:http://127.0.0.1:10001";
         } else {
             Map<String,String> errors = new HashMap<>();
             errors.put("msg",login.getData("msg",new TypeReference<String>(){}));
             attributes.addFlashAttribute("errors",errors);
-            return "redirect:http://auth.gulimall.com/login.html";
+            return "redirect:http://127.0.0.1:20000/login.html";
         }
     }
 
