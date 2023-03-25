@@ -30,6 +30,7 @@ feign:
   session:
     store-type: redis
 
+
 logging:
   level:
     com.atguigu.gulimall.search: debug
