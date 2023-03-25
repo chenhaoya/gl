@@ -150,7 +150,7 @@ public class LoginController {
         if (attribute == null) {
             return "login";
         } else {
-            return "redirect:http://127.0.0.1:12000";
+            return "redirect:http://127.0.0.1:10001";
         }
 
     }

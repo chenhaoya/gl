@@ -5,6 +5,7 @@ server:
     session:
       timeout: 30m
 
+
 spring:
   application:
     name: gulimall-auth-server
@@ -34,6 +35,7 @@ feign:
 
   session:
     store-type: redis
+
 
 #暴露所有端点
 management:

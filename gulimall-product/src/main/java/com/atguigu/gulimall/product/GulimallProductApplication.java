@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 /**
  * 1、整合MyBatis-Plus
@@ -73,7 +74,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  *       ->就会应用到当前 RedisCacheManager管理所有缓存分区中
  */
 
-//@EnableRedisHttpSession     //开启springsession
+@EnableRedisHttpSession     //开启springsession
 //@EnableCaching      //开启缓存功能
 @EnableFeignClients(basePackages = "com.atguigu.gulimall.product.feign")
 @EnableDiscoveryClient
