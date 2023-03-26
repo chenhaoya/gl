@@ -22,7 +22,7 @@ public class MyThreadConfig {
                 pool.getMaxSize(),
                 pool.getKeepAliveTime(),
                 TimeUnit.SECONDS,
-                new LinkedBlockingDeque<>(100000),
+                new LinkedBlockingDeque<>(1000),
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.AbortPolicy()
         );

@@ -33,8 +33,8 @@ feign:
 #配置线程池
 gulimall:
   thread:
-    coreSize: 20
-    maxSize: 200
+    coreSize: 5
+    maxSize: 40
     keepAliveTime: 10
 
 #暴露所有端点
