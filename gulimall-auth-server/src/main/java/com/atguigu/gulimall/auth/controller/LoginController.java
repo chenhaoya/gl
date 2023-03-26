@@ -179,7 +179,7 @@ public class LoginController {
     public String logout(HttpServletRequest request) {
         request.getSession().removeAttribute(LOGIN_USER);
         request.getSession().invalidate();
-        return "redirect:http://gulimall.com";
+        return "redirect:http://127.0.0.1:10001/index.html";
     }
 
 }

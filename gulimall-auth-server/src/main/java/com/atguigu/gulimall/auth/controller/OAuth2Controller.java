@@ -66,14 +66,14 @@ public class OAuth2Controller {
                 session.setAttribute(LOGIN_USER,data);
                 
                 //2、登录成功跳回首页
-                return "redirect:http://gulimall.com";
+                return "redirect:http://127.0.0.1:10001/index.html";
             } else {
                 
-                return "redirect:http://auth.gulimall.com/login.html";
+                return "redirect:http://127.0.0.1:20000/login.html";
             }
 
         } else {
-            return "redirect:http://auth.gulimall.com/login.html";
+            return "redirect:http://127.0.0.1:20000/login.html";
         }
 
     }

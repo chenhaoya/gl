@@ -26,11 +26,11 @@
 
         <ul class="hd_wrap_right">
             <li>
-                <a th:if="${session.loginUser == null}" href="http://auth.gulimall.com/login.html" class="li_2">请登录</a>
+                <a th:if="${session.loginUser == null}" href="http://127.0.0.1:20000/login.html" class="li_2">请登录</a>
                 <a th:if="${session.loginUser != null}">欢迎, [[${session.loginUser.nickname}]]</a>
             </li>
             <li>
-                <a th:if="${session.loginUser == null}" href="http://auth.gulimall.com/reg.html" style="color: red;">免费注册</a>
+                <a th:if="${session.loginUser == null}" href="http://127.0.0.1:20000/reg.html" style="color: red;">免费注册</a>
             </li>
 
             <li>
@@ -91,14 +91,14 @@
                         <div class="clr"></div>
                         <div class="bg_shop">
                             <a class="btn-tobback" th:href="'http://item.gulimall.com/'+${cartItem.skuId}+'.html'">查看商品详情</a>
-                            <a class="btn-addtocart" href="http://cart.gulimall.com/cart.html"
+                            <a class="btn-addtocart" href="http://127.0.0.1:40000/cart.html"
                                id="GotoShoppingCart"><b></b>去购物车结算</a>
                         </div>
                     </div>
                 </div>
                 <div th:if="${cartItem==null}" class="mc success-cont">
                     <h2>购物车中无此商品</h2>
-                    <a href="http://gulimall.com/">去购物</a>
+                    <a href="http://127.0.0.1:40000/cartList.html">去购物</a>
                 </div>
             </div>
         </div>

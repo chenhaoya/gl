@@ -87,7 +87,7 @@ public class CartInterceptor implements HandlerInterceptor {
             //创建一个cookie
             Cookie cookie = new Cookie(TEMP_USER_COOKIE_NAME, userInfoTo.getUserKey());
             //扩大作用域
-            cookie.setDomain("gulimall.com");
+            cookie.setDomain("127.0.0.1");
             //设置过期时间
             cookie.setMaxAge(TEMP_USER_COOKIE_TIMEOUT);
             response.addCookie(cookie);

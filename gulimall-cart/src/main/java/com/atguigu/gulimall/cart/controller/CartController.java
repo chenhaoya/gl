@@ -70,7 +70,7 @@ public class CartController {
         cartService.addToCart(skuId,num);
 
         attributes.addAttribute("skuId",skuId);
-        return "redirect:http://cart.gulimall.com/addToCartSuccessPage.html";
+        return "redirect:http://127.0.0.1:40000/addToCartSuccessPage.html";
     }
 
 
@@ -102,7 +102,7 @@ public class CartController {
 
         cartService.checkItem(skuId,checked);
 
-        return "redirect:http://cart.gulimall.com/cart.html";
+        return "redirect:http://127.0.0.1:40000/cart.html";
 
     }
 
@@ -119,7 +119,7 @@ public class CartController {
 
         cartService.changeItemCount(skuId,num);
 
-        return "redirect:http://cart.gulimall.com/cart.html";
+        return "redirect:http://127.0.0.1:40000/cart.html";
     }
 
 
@@ -133,7 +133,7 @@ public class CartController {
 
         cartService.deleteIdCartInfo(skuId);
 
-        return "redirect:http://cart.gulimall.com/cart.html";
+        return "redirect:http://127.0.0.1:40000/cart.html";
 
     }
 
