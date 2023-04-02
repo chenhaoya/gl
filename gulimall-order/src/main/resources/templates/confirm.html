@@ -1005,7 +1005,7 @@
     function getFare(addrId) {
     	//给表单回填选择的地址
 		$("#addrInput").val(addrId);
-        $.get("http://127.0.0.1:7000/ware/wareinfo/fare?addrId=" + addrId, function (resp) {
+        $.get("http://127.0.0.1:11000/ware/wareinfo/fare?addrId=" + addrId, function (resp) {
             console.log(resp);
             $("#fare").text(resp.data.fare);
             var total = [[${confirmOrderData.total}]];

@@ -20,6 +20,7 @@ import java.util.Map;
  * @date 2019-11-17 13:50:10
  */
 @RestController
+@CrossOrigin
 @RequestMapping("ware/purchasedetail")
 public class PurchaseDetailController {
     @Autowired

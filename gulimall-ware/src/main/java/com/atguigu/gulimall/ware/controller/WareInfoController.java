@@ -20,6 +20,7 @@ import java.util.Map;
  * @email leifengyang@gmail.com
  * @date 2019-10-08 09:59:40
  */
+@CrossOrigin
 @RestController
 @RequestMapping("ware/wareinfo")
 public class WareInfoController {
@@ -31,6 +32,7 @@ public class WareInfoController {
      * @return
      */
     @GetMapping(value = "/fare")
+    @ResponseBody
     public R getFare(@RequestParam("addrId") Long addrId) {
 
         FareVo fare = wareInfoService.getFare(addrId);

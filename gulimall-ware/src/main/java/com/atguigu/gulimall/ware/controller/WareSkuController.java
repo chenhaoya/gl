@@ -20,6 +20,7 @@ import static com.atguigu.common.exception.BizCodeEnume.NO_STOCK_EXCEPTION;
 /**
  * 商品库存
  */
+@CrossOrigin
 @RestController
 @RequestMapping("ware/waresku")
 public class WareSkuController {

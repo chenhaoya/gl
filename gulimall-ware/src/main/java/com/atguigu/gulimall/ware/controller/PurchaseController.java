@@ -23,6 +23,7 @@ import java.util.Map;
  * @email leifengyang@gmail.com
  * @date 2019-11-17 13:50:10
  */
+@CrossOrigin
 @RestController
 @RequestMapping("ware/purchase")
 public class PurchaseController {
