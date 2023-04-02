@@ -5,6 +5,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.util.List;
 
+
 @Data
 public class SkuReductionTo {
 
@@ -16,4 +17,5 @@ public class SkuReductionTo {
     private BigDecimal reducePrice;
     private int priceStatus;
     private List<MemberPrice> memberPrice;
+
 }

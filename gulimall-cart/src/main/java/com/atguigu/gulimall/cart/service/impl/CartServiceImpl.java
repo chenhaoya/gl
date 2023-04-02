@@ -263,7 +263,7 @@ public class CartServiceImpl implements CartService {
             }
             //筛选出选中的
             cartItemVoList = cartItems.stream()
-                    .filter(items -> items.getCheck())
+                    .filter(CartItemVo::getCheck)
                     .map(item -> {
                         //更新为最新的价格（查询数据库）
                         BigDecimal price = productFeignService.getPrice(item.getSkuId());

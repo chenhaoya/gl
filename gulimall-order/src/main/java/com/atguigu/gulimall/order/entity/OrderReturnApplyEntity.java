@@ -6,19 +6,12 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.math.BigDecimal;
 import java.io.Serializable;
 import java.util.Date;
-
-import lombok.Builder;
 import lombok.Data;
-import lombok.experimental.Accessors;
 
 /**
  * 订单退货申请
- * 
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-08 09:56:16
+ *
  */
-@Accessors(chain = true)
 @Data
 @TableName("oms_order_return_apply")
 public class OrderReturnApplyEntity implements Serializable {

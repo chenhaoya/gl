@@ -10,10 +10,7 @@ import lombok.Data;
 
 /**
  * 支付信息表
- * 
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-08 09:56:16
+ *
  */
 @Data
 @TableName("oms_payment_info")

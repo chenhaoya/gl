@@ -20,9 +20,6 @@ import com.atguigu.common.utils.R;
 /**
  * 退款信息
  *
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-08 09:56:16
  */
 @RestController
 @RequestMapping("order/refundinfo")

@@ -43,3 +43,9 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto  #主键自增
+
+gulimall:
+  thread:
+    coreSize: 5
+    maxSize: 20
+    keepAliveTime: 10

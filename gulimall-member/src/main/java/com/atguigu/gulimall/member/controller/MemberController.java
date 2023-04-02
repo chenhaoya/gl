@@ -1,31 +1,25 @@
 package com.atguigu.gulimall.member.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
 import com.atguigu.common.exception.BizCodeEnume;
+import com.atguigu.common.utils.PageUtils;
+import com.atguigu.common.utils.R;
+import com.atguigu.gulimall.member.entity.MemberEntity;
 import com.atguigu.gulimall.member.exception.PhoneException;
 import com.atguigu.gulimall.member.exception.UsernameException;
-import com.atguigu.gulimall.member.feign.CouponFeignService;
+import com.atguigu.gulimall.member.service.MemberService;
 import com.atguigu.gulimall.member.vo.MemberUserLoginVo;
 import com.atguigu.gulimall.member.vo.MemberUserRegisterVo;
 import com.atguigu.gulimall.member.vo.SocialUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.gulimall.member.entity.MemberEntity;
-import com.atguigu.gulimall.member.service.MemberService;
-import com.atguigu.common.utils.PageUtils;
-import com.atguigu.common.utils.R;
+import java.util.Arrays;
+import java.util.Map;
 
 
 
 /**
  * 会员
- *
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-08 09:47:05
  */
 @RestController
 @RequestMapping("member/member")
@@ -103,7 +97,7 @@ public class MemberController {
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("member:member:info")
     public R info(@PathVariable("id") Long id){
-        MemberEntity member = memberService.getById(id);
+		MemberEntity member = memberService.getById(id);
 
         return R.ok().put("member", member);
     }
@@ -114,7 +108,7 @@ public class MemberController {
     @RequestMapping("/save")
     //@RequiresPermissions("member:member:save")
     public R save(@RequestBody MemberEntity member){
-        memberService.save(member);
+		memberService.save(member);
 
         return R.ok();
     }
@@ -125,7 +119,7 @@ public class MemberController {
     @RequestMapping("/update")
     //@RequiresPermissions("member:member:update")
     public R update(@RequestBody MemberEntity member){
-        memberService.updateById(member);
+		memberService.updateById(member);
 
         return R.ok();
     }
@@ -136,7 +130,7 @@ public class MemberController {
     @RequestMapping("/delete")
     //@RequiresPermissions("member:member:delete")
     public R delete(@RequestBody Long[] ids){
-        memberService.removeByIds(Arrays.asList(ids));
+		memberService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

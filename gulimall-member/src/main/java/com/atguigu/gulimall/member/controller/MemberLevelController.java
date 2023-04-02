@@ -20,9 +20,6 @@ import com.atguigu.common.utils.R;
 /**
  * 会员等级
  *
- * @author leifengyang
- * @email leifengyang@gmail.com
- * @date 2019-10-08 09:47:05
  */
 @RestController
 @RequestMapping("member/memberlevel")
