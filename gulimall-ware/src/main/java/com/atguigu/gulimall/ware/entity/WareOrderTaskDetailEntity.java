@@ -54,6 +54,9 @@ public class WareOrderTaskDetailEntity implements Serializable {
 
 	/**
 	 * 锁定状态
+	 * 1：锁定
+	 * 2：解锁
+	 * 3：扣减
 	 */
 	private Integer lockStatus;
 

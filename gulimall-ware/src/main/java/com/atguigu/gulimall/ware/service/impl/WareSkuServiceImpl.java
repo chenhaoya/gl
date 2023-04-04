@@ -134,6 +134,8 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
 
     /**
      * 为某个订单锁定库存
+     * 1、下单成功后支付超时、用户手动取消
+     * 2、下单成功，锁定库存成功。业务代码导致回滚。自动解锁
      * @param vo
      * @return
      */
@@ -195,7 +197,7 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
                             .build();
                     wareOrderTaskDetailService.save(taskDetailEntity);
 
-                    //TODO 告诉MQ库存锁定成功
+                    // 告诉MQ库存锁定成功
                     StockLockedTo lockedTo = new StockLockedTo();
                     lockedTo.setId(wareOrderTaskEntity.getId());
                     StockDetailTo detailTo = new StockDetailTo();

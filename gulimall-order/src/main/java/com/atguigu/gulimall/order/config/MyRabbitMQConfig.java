@@ -15,6 +15,7 @@ import java.util.HashMap;
 @Configuration
 public class MyRabbitMQConfig {
 
+    // 需要有一个监听才会自动创建
 //    @RabbitListener(queues = "order.release.order.queue")
 //    public void listener(OrderEntity orderEntity, Channel channel, Message message) throws IOException {
 //        System.out.println("收到消息：" + orderEntity.getOrderSn() + "::" + orderEntity.getDeliveryTime());
