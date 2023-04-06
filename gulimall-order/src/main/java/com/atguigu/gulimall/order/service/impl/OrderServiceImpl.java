@@ -304,9 +304,11 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
             BeanUtils.copyProperties(orderInfo, orderTo);
 
             try {
+                // 订单取消后立即向解锁库存队列发送解锁消息
                 //TODO 确保每个消息发送成功，给每个消息做好日志记录，(给数据库保存每一个详细信息)保存每个消息的详细信息
                 rabbitTemplate.convertAndSend("order-event-exchange", "order.release.other", orderTo);
             } catch (Exception e) {
+
                 //TODO 定期扫描数据库，重新发送失败的消息
             }
         }

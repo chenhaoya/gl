@@ -13,6 +13,9 @@ import java.io.IOException;
 
 /**
  * @Description: 定时关闭订单
+ * 订单超时自动关闭
+ * 1、订单创建成功后向order-event-exchange发送消息 key：order.create.order
+ * 2、后到延时队列：order.delay.queue 30分钟后路由键：order.release.order 判断订单是否关闭
  **/
 
 @RabbitListener(queues = "order.release.order.queue")
