@@ -625,7 +625,6 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
      * @param code
      */
     private void updateOrderStatus(String orderSn, Integer code,Integer payType) {
-
         this.baseMapper.updateOrderStatus(orderSn,code,payType);
     }
 
