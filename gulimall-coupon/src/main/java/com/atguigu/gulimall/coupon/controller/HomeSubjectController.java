@@ -1,20 +1,14 @@
 package com.atguigu.gulimall.coupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.atguigu.gulimall.coupon.entity.HomeSubjectEntity;
-import com.atguigu.gulimall.coupon.service.HomeSubjectService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.common.utils.R;
+import com.atguigu.gulimall.coupon.entity.HomeSubjectEntity;
+import com.atguigu.gulimall.coupon.service.HomeSubjectService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Map;
 
 
 /**
@@ -56,8 +50,7 @@ public class HomeSubjectController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
-    //@RequiresPermissions("coupon:homesubject:save")
+    @PostMapping("/save")
     public R save(@RequestBody HomeSubjectEntity homeSubject){
 		homeSubjectService.save(homeSubject);
 
@@ -68,7 +61,6 @@ public class HomeSubjectController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("coupon:homesubject:update")
     public R update(@RequestBody HomeSubjectEntity homeSubject){
 		homeSubjectService.updateById(homeSubject);
 

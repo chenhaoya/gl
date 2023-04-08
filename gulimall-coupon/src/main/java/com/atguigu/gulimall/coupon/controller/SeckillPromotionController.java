@@ -1,20 +1,15 @@
 package com.atguigu.gulimall.coupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.atguigu.gulimall.coupon.entity.SeckillPromotionEntity;
-import com.atguigu.gulimall.coupon.service.SeckillPromotionService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.common.utils.R;
+import com.atguigu.gulimall.coupon.entity.SeckillPromotionEntity;
+import com.atguigu.gulimall.coupon.service.SeckillPromotionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Map;
 
 
 /**
@@ -59,6 +54,8 @@ public class SeckillPromotionController {
     @RequestMapping("/save")
     //@RequiresPermissions("coupon:seckillpromotion:save")
     public R save(@RequestBody SeckillPromotionEntity seckillPromotion){
+        seckillPromotion.setUserId(1L);
+        seckillPromotion.setCreateTime(new Date());
 		seckillPromotionService.save(seckillPromotion);
 
         return R.ok();
