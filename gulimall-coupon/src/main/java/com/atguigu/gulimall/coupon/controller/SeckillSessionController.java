@@ -34,7 +34,9 @@ public class SeckillSessionController {
     public R getLates3DaySession() {
 
         List<SeckillSessionEntity> seckillSessionEntities = seckillSessionService.getLates3DaySession();
-
+        seckillSessionEntities.forEach(e->{
+            System.out.println(e.getStartTime());
+        });
         return R.ok().setData(seckillSessionEntities);
     }
 

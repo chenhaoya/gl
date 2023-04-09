@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8"/>
     <title>商品已成功加入购物车</title>
-    <script type="text/javascript" src="http://cart.gulimall.com/static/cart/js/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="http://cart.gulimall.com/static/cart/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="http://cart.gulimall.com/static/cart/js/swiper.min.js"></script>
-    <script src="http://cart.gulimall.com/static/cart/js/swiper.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://cart.gulimall.com/static/cart//css/swiper.min.css"/>
-    <link rel="stylesheet" type="text/css" href="http://cart.gulimall.com/static/cart//bootstrap/css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="http://cart.gulimall.com/static/cart//css/success.css"/>
+    <script type="text/javascript" src="cart/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="cart/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="cart/js/swiper.min.js"></script>
+    <script src="cart/js/swiper.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="cart/css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="cart/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="cart/css/success.css"/>
 
 </head>
 
@@ -34,7 +34,7 @@
             </li>
 
             <li>
-                <a href="http://cart.gulimall.com/javascript:;">我的订单</a>
+                <a href="http://127.0.0.1:8000/memberOrder.html">我的订单</a>
             </li>
 
 
@@ -48,7 +48,7 @@
 
         <div class="nav_top">
             <div class="nav_top_one">
-                <a href="http://cart.gulimall.comhttp://gulimall.com/"><img src="http://cart.gulimall.com/static/cart/img/logo1.jpg" style="height: 60px;width:180px;"/></a>
+                <a href="http://cart.gulimall.comhttp://gulimall.com/"><img src="cart/img/logo1.jpg" style="height: 60px;width:180px;"/></a>
             </div>
             <div class="nav_top_two"><input type="text"/>
                 <button>搜索</button>
@@ -68,7 +68,7 @@
                 <div th:if="${orderSn != null}" class="mc success-cont">
                     <h1>恭喜秒杀成功 订单号 [[${orderSn}]]</h1>
                     <h2>正在准备订单数据 10秒钟后自动跳转支付
-                        <a style="color: red" th:href="${'http://order.gulimall.com/aliPayOrder?orderSn=' + orderSn}">点击支付</a>
+                        <a style="color: red" th:href="${'http://127.0.0.1:9000/aliPayOrder?orderSn=' + orderSn}">点击支付</a>
                     </h2>
                 </div>
                 <div th:if="${orderSn == null}">
@@ -80,6 +80,6 @@
 
 </div>
 </body>
-<script type="text/javascript" src="http://cart.gulimall.com/static/cart/js/success.js"></script>
+<script type="text/javascript" src="cart/js/success.js"></script>
 
 </html>

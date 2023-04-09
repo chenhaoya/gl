@@ -1401,7 +1401,7 @@
             var killId = $(this).attr("sessionid") + "-" + $(this).attr("skuid");
             var code = $(this).attr("code");
             var num = $("#productNum").val();
-            location.href = "http://seckill.gulimall.com/kill?killId=" + killId + "&key=" + code + "&num=" + num;
+            location.href = "http://127.0.0.1:25000/kill?killId=" + killId + "&key=" + code + "&num=" + num;
         } else {
             alert("秒杀请先登录");
         }

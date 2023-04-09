@@ -6,3 +6,5 @@ spring:
     nacos:
       config:
         server-addr: 192.168.15.128
+        ext-config:
+          - dataId: logging.yaml

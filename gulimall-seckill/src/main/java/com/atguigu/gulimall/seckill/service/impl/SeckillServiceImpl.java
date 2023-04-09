@@ -186,7 +186,7 @@ public class SeckillServiceImpl implements SeckillService {
                 //判断是否是当前秒杀场次
                 if (currentTime >= startTime && currentTime <= endTime) {
                     //2、获取这个秒杀场次需要的所有商品信息
-                    List<String> range = redisTemplate.opsForList().range(key, -100, 100);
+                    List<String> range = redisTemplate.opsForList().range(key, 0, -1);
                     BoundHashOperations<String, String, String> hasOps = redisTemplate.boundHashOps(SECKILL_CHARE_PREFIX);
                     assert range != null;
                     List<String> listValue = hasOps.multiGet(range);

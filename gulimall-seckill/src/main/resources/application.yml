@@ -22,12 +22,6 @@ spring:
     port: 6666
     password: rreeddiiss
 
-
-#开启feign对sentinel的支持
-feign:
-  sentinel:
-    enabled: true
-
   #配置异步任务线程池
   task:
     execution:
@@ -38,6 +32,10 @@ feign:
   session:
     store-type: redis
 
+#开启feign对sentinel的支持
+feign:
+  sentinel:
+    enabled: true
 
 #暴露所有端点
 management:

@@ -17,7 +17,7 @@ public class GulimallSessionConfig {
         DefaultCookieSerializer cookieSerializer = new DefaultCookieSerializer();
 
         //放大作用域
-        cookieSerializer.setDomainName("gulimall.com");
+        cookieSerializer.setDomainName("127.0.0.1");
         cookieSerializer.setCookieName("GULISESSION");
 
         return cookieSerializer;
