@@ -18,3 +18,6 @@ spring:
 #  resources:
 #    static-locations: classpath:templates/,classpath:static/,classpath:static/search/**
 
+feign:
+  sentinel:
+    enabled: true

@@ -24,3 +24,7 @@ gulimall:
     coreSize: 5
     maxSize: 20
     keepAliveTime: 10
+
+feign:
+  sentinel:
+    enabled: true

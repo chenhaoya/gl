@@ -15,3 +15,7 @@ spring:
         server-addr: 192.168.15.128:8848
   mvc:
     date-format: yyyy-MM-dd HH:mm:ss
+
+feign:
+  sentinel:
+    enabled: true
