@@ -12,6 +12,17 @@ spring:
           - data-id: ${spring.application.name}-${spring.profiles.active}.yaml
             file-extension: yaml
             refresh: true
+
         server-addr: 192.168.15.128:8848
       discovery:
         server-addr: 192.168.15.128:8848
+
+    sentinel:
+      transport:
+        dashboard: localhost:8333
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
