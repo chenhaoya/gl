@@ -57,7 +57,8 @@ header {
 
 .top-3 {
   width: 1365px;
-  background: #E93854;
+  /*background: #E93854;  */
+  background: #0e259f;
   position: relative; }
   .top-3 .img_1 {
     width: 990px;

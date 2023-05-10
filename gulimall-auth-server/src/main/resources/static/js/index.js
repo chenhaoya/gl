@@ -79,7 +79,7 @@ $(function(){
 		if($(this).val().length==0){
 			$(this).parent().next("div").text("");
 			$(this).parent().next("div").css("color",'#ccc');
-		}else if($(this).val().substr(0,3)!=138&&$(this).val().substr(0,3)!=189&&$(this).val().substr(0,3)!=139&&$(this).val().substr(0,3)!=158&&$(this).val().substr(0,3)!=188&&$(this).val().substr(0,3)!=157||$(this).val().length!=11){
+		}else if($(this).val().substr(0,3)!=138&&$(this).val().substr(0,3)!=189&&$(this).val().substr(0,3)!=181&&$(this).val().substr(0,3)!=139&&$(this).val().substr(0,3)!=158&&$(this).val().substr(0,3)!=188&&$(this).val().substr(0,3)!=157||$(this).val().length!=11){
 			$(this).parent().next("div").text("手机号格式不正确");
 			$(this).parent().next("div").css("color",'red');
 		}else{

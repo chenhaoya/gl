@@ -6,6 +6,7 @@ import com.atguigu.gulimall.order.config.AlipayTemplate;
 import com.atguigu.gulimall.order.service.OrderService;
 import com.atguigu.gulimall.order.vo.PayAsyncVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,7 +30,13 @@ public class OrderPayedListener {
     private AlipayTemplate alipayTemplate;
 
     @PostMapping(value = "/payed/notify")
-    public String handleAlipayed(PayAsyncVo asyncVo, HttpServletRequest request) throws AlipayApiException, UnsupportedEncodingException {
+    public String handleAlipayed(@RequestBody PayAsyncVo asyncVo, HttpServletRequest request) throws AlipayApiException, UnsupportedEncodingException {
+        String isLocal = request.getHeader("isLocal");
+        if ("1".equals(isLocal)) {
+            String result = orderService.handlePayResult(asyncVo);
+            return result;
+        }
+
         // 只要收到支付宝的异步通知，返回 success 支付宝便不再通知
         // 获取支付宝POST过来反馈信息
         //TODO 需要验签

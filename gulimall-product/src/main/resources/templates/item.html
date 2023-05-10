@@ -61,8 +61,8 @@
             <ul class="header_ul_right">
                 <li style="border: 0;">
                     <a th:if="${session.loginUser == null}" href="http://127.0.0.1:20000/login.html"
-                       class="aa">你好，请登录</a>
-                    <a th:if="${session.loginUser != null}">欢迎, [[${session.loginUser.nickname}]]</a>
+                       class="aa" style="white-space: nowrap;">你好，请登录</a>
+                    <a th:if="${session.loginUser != null}" style="white-space: nowrap;">欢迎, [[${session.loginUser.nickname}]]</a>
                 </li>
                 <li>
                     <a th:if="${session.loginUser == null}" href="http://127.0.0.1:20000/reg.html"
@@ -264,7 +264,14 @@
     <nav>
         <div class="nav_min">
             <div class="nav_top">
-                <div class="nav_top_one"><a href="http://127.0.0.1:10001/index.html"><img src="/item/img/111.png"/></a></div>
+                <div class="nav_top_one">
+<!--                    <a href="http://127.0.0.1:10001/index.html">-->
+<!--                        <img src="/item/img/111.png"/>-->
+<!--                    </a>-->
+                    <a href="#" class="img" style="margin-left: 30px; margin-top: 42px">
+                        <img src="index/img/logo.jpg" style="height: 82px;width: 278px"/>
+                    </a>
+                </div>
                 <div class="nav_top_two"><input type="text"/>
                     <button>搜索</button>
                 </div>
@@ -966,7 +973,7 @@
                             <!--                            </div>-->
                         </div>
                     </li>
-                    <li class="baozhuang actives" id="li2">
+<!--                    <li class="baozhuang actives" id="li2">-->
                     <li class="baozhuang actives" id="li2">
                         <div class="guiGebox">
                             <div class="guiGe" th:each="group : ${item.groupAttrs}">
