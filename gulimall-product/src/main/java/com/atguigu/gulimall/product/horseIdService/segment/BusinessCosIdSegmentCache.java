@@ -66,19 +66,20 @@ public class BusinessCosIdSegmentCache {
 
         long prefetchingCount;
 
+        // 当前与上次取id的时间间隔
         long wakeupTimeGap = Optional.ofNullable(putSegmentChainTime)
                 .map(localDateTime -> Duration.between(putSegmentChainTime, hungerTime).toMillis() / 1000)
                 .orElse((long) HUNGER_THRESHOLD);
 
-
+        // 更具间隔判断是否需要对本次预取id数量扩容
         if (wakeupTimeGap < HUNGER_THRESHOLD) {
             log.info("饥饿了");
+            // *2
             prefetchingCount = Math.min(Math.multiplyExact(businessCosIdSegmentChain.getLastPrefetchingCount(), Math.max(Math.floorDiv(HUNGER_THRESHOLD, Math.max(wakeupTimeGap, 1)), 2)), MAX_PREFETCH_DISTANCE);
         } else {
             log.info("不饿");
             prefetchingCount = Math.max(Math.floorDiv(businessCosIdSegmentChain.getLastPrefetchingCount(), 2), businessCosIdSegmentChain.getSafeDistance());
         }
-
 
         log.info("本次预取号段 {}", prefetchingCount);
         businessCosIdSegmentChain.setLastPrefetchingCount(prefetchingCount);

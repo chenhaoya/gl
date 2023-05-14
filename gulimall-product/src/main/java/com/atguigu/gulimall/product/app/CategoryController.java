@@ -1,8 +1,23 @@
 package com.atguigu.gulimall.product.app;
 
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.atguigu.gulimall.product.utils.SensitiveCheckUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,9 +68,10 @@ public class CategoryController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("product:category:save")
-    public R save(@RequestBody CategoryEntity category){
-		categoryService.save(category);
-
+    public R save(@RequestBody CategoryEntity category) throws Exception {
+        String s = SensitiveCheckUtils.checkWord(category.getName());
+        category.setName(s);
+        categoryService.save(category);
         return R.ok();
     }
 
@@ -72,6 +88,8 @@ public class CategoryController {
     @RequestMapping("/update")
     //@RequiresPermissions("product:category:update")
     public R update(@RequestBody CategoryEntity category){
+        String s = SensitiveCheckUtils.checkWord(category.getName());
+        category.setName(s);
 		categoryService.updateCascade(category);
         return R.ok();
     }
